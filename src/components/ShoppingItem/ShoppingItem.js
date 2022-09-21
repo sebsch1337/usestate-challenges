@@ -1,7 +1,8 @@
 import "./ShoppingItem.css";
+import { useState } from "react";
 
 function ShoppingItem({ name, price }) {
-  const amount = 1;
+  const [amount, setAmount] = useState(1);
 
   return (
     <section className="item">
@@ -9,10 +10,18 @@ function ShoppingItem({ name, price }) {
       <p>price: {price}</p>
       <p>amount: {amount}</p>
       <p>total: {price * amount}</p>
-      <button className="item__button" type="button">
+      <button
+        onClick={() => setAmount((amount) => amount - 1.0)}
+        className="item__button"
+        type="button"
+      >
         -
       </button>
-      <button className="item__button" type="button">
+      <button
+        onClick={() => setAmount((amount) => amount + 1.0)}
+        className="item__button"
+        type="button"
+      >
         +
       </button>
     </section>
